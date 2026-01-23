@@ -17,20 +17,43 @@ public class Basketball
 {
     public static void Run()
     {
+        // Map: playerId -> total career points
         var players = new Dictionary<string, int>();
 
         using var reader = new TextFieldParser("basketball.csv");
         reader.TextFieldType = FieldType.Delimited;
         reader.SetDelimiters(",");
         reader.ReadFields(); // ignore header row
-        while (!reader.EndOfData) {
+
+        while (!reader.EndOfData)
+        {
             var fields = reader.ReadFields()!;
             var playerId = fields[0];
             var points = int.Parse(fields[8]);
+
+            // Add or update total points for this player
+            if (players.ContainsKey(playerId))
+            {
+                players[playerId] += points;
+            }
+            else
+            {
+                players[playerId] = points;
+            }
         }
 
-        Console.WriteLine($"Players: {{{string.Join(", ", players)}}}");
+        // Convert dictionary to a list and sort by points (descending)
+        var sortedPlayers = players
+            .OrderByDescending(p => p.Value)
+            .Take(10);
 
-        var topPlayers = new string[10];
+        // Display results
+        Console.WriteLine("Player ID\tTotal Points");
+        Console.WriteLine("----------------------------");
+
+        foreach (var player in sortedPlayers)
+        {
+            Console.WriteLine($"{player.Key}\t\t{player.Value}");
+        }
     }
 }

@@ -46,3 +46,7 @@ public class BasketballSolution
         }
     }
 }
+//The program uses a dictionary to map each player ID to their total career points.
+// As each row of the CSV file is read, the player’s yearly points are added to their running total.
+// After processing the file, the dictionary is converted to a list and 
+//sorted in descending order by total points, allowing the top 10 scoring players to be displayed efficiently.

@@ -29,5 +29,23 @@
     /// <param name="numbers">array of integers</param>
     private static void DisplaySumPairs(int[] numbers) {
         // TODO Problem 2 - This should print pairs of numbers in the given array
+
+          HashSet<int> seen = new HashSet<int>(); // 
+
+          foreach (int number in numbers)
+         {
+            int needed = 10 - number;
+
+            if (seen.Contains(needed))
+            {
+            Console.WriteLine($"{number} {needed}");
+        }
+
+        seen.Add(number);
+    }
     }
 }
+
+//The solution stores previously seen numbers in a set and, 
+//for each number, checks whether the value needed to sum to 10 
+//already exists in the set, allowing all valid pairs to be found in O(n) time without duplicates.
