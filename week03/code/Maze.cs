@@ -34,11 +34,11 @@ public class Maze
     {
         
         if (!_mazeMap[(_currX, _currY)][0])
-          {
-            throw new InvalidOperationException("Can't go that way!");
-         }
+            {
+               throw new InvalidOperationException("Can't go that way!");
+             }
 
-         _currX--;
+             _currX--;
     }
 
     /// <summary>
