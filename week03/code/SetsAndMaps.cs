@@ -20,7 +20,7 @@ public static class SetsAndMaps
     /// </summary>
     /// <param name="words">An array of 2-character words (lowercase, no duplicates)</param>
     
-    public static List<string> FindPairs(List<string> words)
+    public static string[] FindPairs(string[] words)
     {   // TODO Problem 1 - ADD YOUR CODE HERE
     HashSet<string> seen = new HashSet<string>();
     List<string> result = new List<string>();
@@ -45,7 +45,7 @@ public static class SetsAndMaps
         }
     }
 
-    return result;
+    return result.ToArray();
 }
 
 
@@ -186,7 +186,7 @@ public static class SetsAndMaps
             feature.Properties.Place != null)
           {
             summaries.Add(
-                $"M {feature.Properties.Mag} - {feature.Properties.Place}"
+                $"{feature.Properties.Place} - Mag {feature.Properties.Mag}"
             );
            }
         }

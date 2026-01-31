@@ -23,6 +23,7 @@ public class Maze
     public Maze(Dictionary<ValueTuple<int, int>, bool[]> mazeMap)
     {
         _mazeMap = mazeMap;
+        
     }
 
     // TODO Problem 4 - ADD YOUR CODE HERE
