@@ -23,7 +23,7 @@ public class Maze
     public Maze(Dictionary<ValueTuple<int, int>, bool[]> mazeMap)
     {
         _mazeMap = mazeMap;
-        
+
     }
 
     // TODO Problem 4 - ADD YOUR CODE HERE
@@ -67,7 +67,7 @@ public class Maze
             throw new InvalidOperationException("Can't go that way!");
          }
 
-         _currY--;
+         _currY++; // Move up increases Y
     }
 
     /// <summary>
@@ -81,7 +81,7 @@ public class Maze
             throw new InvalidOperationException("Can't go that way!");
          }
 
-         _currY++;
+         _currY--; // Move down decreases Y
     }
 
     public string GetStatus()
